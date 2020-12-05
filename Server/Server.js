@@ -37,11 +37,17 @@ var bookings = [
 
 //  Create a new character - takes in JSON input
 
-app.use("/", express.static("../Client"));
-
 app.get("/api/tables", function (req, res) {
   console.log("req.body get =", req.body);
   res.json(bookings);
+  // let table = [];
+  // let waiting = [];
+  console.log("bookings =", bookings); 
+  // if (bookings < 5){
+  //   waiting.push(req.body);   
+  // }else{
+  //   table.push(req.body);
+  // }
 });
 
 
@@ -52,6 +58,9 @@ app.post("/api/reserve", function (req, res) {
   bookings.push(newBooking);
   res.json(bookings);
 });
+
+
+app.use("/", express.static("../Client"));
 
 app.listen(PORT, function () {
   console.log("Server is listening on Port ", PORT);
