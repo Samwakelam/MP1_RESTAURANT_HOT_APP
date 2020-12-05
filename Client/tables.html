@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
         integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
         crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
@@ -18,21 +19,22 @@
         <h1 class="display-4"><i class="fas fa-fire"></i> Hot Restaurant</h1>
         <hr class="my-4">
         <p>Current reservations and waiting list</p>
-        <button type="button" class="btn btn-primary" type="submit" onclick="document.location='reserve.html'">Make
+        <button type="button" class="btn btn-primary" onclick="document.location='reserve.html'">Make
             reservation</button>
-        <button type="button" class="btn btn-danger" type="submit" onclick="document.location='index.html'"><i
+        <button type="button" class="btn btn-danger" onclick="document.location='index.html'"><i
                 class="fas fa-home"></i></button>
+                <button id="cancelReservation" type="button" class="btn btn-warning">Cancel reservation</button>
     </div>
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="card bg-light mb-3" style="max-width: 18rem;">
                     <div class="card-header"><i class="far fa-calendar-check"></i> Current reservations</div>
                     <div class="card-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">1 | Smith</li>
-                            <li class="list-group-item">2 | Jones</li>
+                        <ul id="reserved-tables" class="list-group">
+                            <!-- <li class="list-group-item">1 | Smith</li>
+                            <li class="list-group-item">2 | Jones</li> -->
                         </ul>
                     </div>
                 </div>
@@ -40,19 +42,33 @@
                 <div class="card bg-light mb-3" style="max-width: 18rem;">
                     <div class="card-header"><i class="far fa-clock"></i> Waiting list</div>
                     <div class="card-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">8 | Brown</li>
-                            <li class="list-group-item">9 | Harris</li>
+                        <ul id="waiting-tables" class="list-group">
+                            <!-- <li class="list-group-item">8 | Brown</li>
+                            <li class="list-group-item">9 | Harris</li> -->
                         </ul>
                     </div>
                 </div>
 
             </div>
+            <div class="col-md-6">
+                <div id="cancel-card" class="card bg-light mb-3 hide" style="max-width: 18rem;">
+					<div class="card-header">Cancel Reservation</div>
+					<div class="card-body">
+						<form id="cancelForm">
+							<label for="cancel ID">Unique ID</label>
+							<input type="text" class="form-control" id="cancelID" name="cancel ID">
+							<br />
+							<button id="submitCancelation" type="submit" name="Submit" class="btn btn-primary">Submit</button>
+						</form>
+					</div>
+				</div>
+            </div>
         </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
+    <script src="getTables.js"></script>
 </body>
 
 </html>
